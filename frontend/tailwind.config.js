@@ -7,15 +7,14 @@ export default {
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
-        // FFXIV role colors
-        tank:   '#4a9eff',
-        healer: '#57c875',
-        dps:    '#ff6b6b',
-        // UI chrome
-        surface:  '#1a1a2e',
-        panel:    '#16213e',
-        border:   '#0f3460',
-        accent:   '#e94560',
+        // All point to CSS custom properties so they update live
+        surface:  'var(--color-surface)',
+        panel:    'var(--color-panel)',
+        border:   'var(--color-border)',
+        accent:   'var(--color-accent)',
+        tank:     'var(--color-tank)',
+        healer:   'var(--color-healer)',
+        dps:      'var(--color-dps)',
       },
     },
   },

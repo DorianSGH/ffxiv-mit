@@ -1,16 +1,19 @@
 import type { Role, AbilityType, DamageType } from '../types'
 
 export const ROLE_COLORS: Record<Role, string> = {
-  tank:   '#4a9eff',
-  healer: '#57c875',
-  dps:    '#ff6b6b',
+  tank:   'var(--color-tank)',
+  healer: 'var(--color-healer)',
+  dps:    'var(--color-dps)',
 }
 
+// These return CSS variable references so they update live with theme changes.
+// For inline styles, use getComputedStyle to resolve the actual value,
+// or pass the var() string directly — modern browsers handle it fine.
 export const ABILITY_TYPE_COLORS: Record<AbilityType, string> = {
-  mitigation: '#6b7cff',
-  shield:     '#f5c518',
-  regen:      '#57c875',
-  invuln:     '#ff9f43',
+  mitigation: 'var(--color-mit)',
+  shield:     'var(--color-shield)',
+  regen:      'var(--color-regen)',
+  invuln:     'var(--color-invuln)',
 }
 
 export const ABILITY_TYPE_LABELS: Record<AbilityType, string> = {

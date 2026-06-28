@@ -1,9 +1,14 @@
 import { Routes, Route, NavLink } from 'react-router-dom'
 import HomePage from './pages/HomePage'
+import SettingsPage from './pages/SettingsPage'
+import { loadTheme, applyTheme } from './lib/theme'
+import { useEffect } from 'react'
 import PlannerPage from './pages/PlannerPage'
 import AdminPage from './pages/AdminPage'
 
 export default function App() {
+  useEffect(() => { applyTheme(loadTheme()) }, [])
+
   return (
     <div className="min-h-screen flex flex-col">
       <nav className="bg-panel border-b border-border px-6 py-3 flex items-center gap-8 shrink-0">
@@ -14,6 +19,7 @@ export default function App() {
           {[
             { to: '/', label: 'Plans' },
             { to: '/admin', label: 'Admin' },
+            { to: '/settings', label: 'Settings' },
           ].map(({ to, label }) => (
             <NavLink
               key={to}
@@ -36,6 +42,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/plan/:planId" element={<PlannerPage />} />
           <Route path="/admin" element={<AdminPage />} />
+          <Route path="/settings" element={<SettingsPage />} />
         </Routes>
       </main>
     </div>

@@ -3,16 +3,32 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    @apply bg-surface text-gray-100;
+  :root {
+    --color-surface:  #1a1a2e;
+    --color-panel:    #16213e;
+    --color-border:   #0f3460;
+    --color-accent:   #e94560;
+    --color-tank:     #4a9eff;
+    --color-healer:   #57c875;
+    --color-dps:      #ff6b6b;
+    /* Timeline-specific */
+    --color-mit:      #6b7cff;
+    --color-shield:   #f5c518;
+    --color-regen:    #57c875;
+    --color-invuln:   #ff9f43;
+    --color-cd-bar:   #ffffff;
+    --color-dur-bar:  #ffffff;
+    --color-label:    #ffffff;
   }
 
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+  html {
+    background-color: var(--color-surface);
+    color: #f1f5f9;
   }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { @apply bg-border rounded-full; }
+  ::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 9999px; }
 }
 
 @layer components {
@@ -21,18 +37,26 @@
            disabled:opacity-40 disabled:cursor-not-allowed;
   }
   .btn-primary {
-    @apply btn bg-accent hover:bg-red-500 text-white;
+    @apply btn text-white;
+    background-color: var(--color-accent);
   }
+  .btn-primary:hover { filter: brightness(1.15); }
   .btn-ghost {
-    @apply btn bg-transparent hover:bg-white/10 text-gray-300 border border-border;
+    @apply btn bg-transparent text-gray-300;
+    border: 1px solid var(--color-border);
   }
+  .btn-ghost:hover { background: rgba(255,255,255,0.08); }
   .card {
-    @apply bg-panel rounded-xl border border-border;
+    @apply rounded-xl;
+    background-color: var(--color-panel);
+    border: 1px solid var(--color-border);
   }
   .input {
-    @apply bg-surface border border-border rounded-lg px-3 py-2 text-sm text-gray-100
-           focus:outline-none focus:border-accent w-full;
+    @apply rounded-lg px-3 py-2 text-sm text-gray-100 focus:outline-none w-full;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
   }
+  .input:focus { border-color: var(--color-accent); }
   .label {
     @apply text-xs font-medium text-gray-400 uppercase tracking-wider mb-1 block;
   }
